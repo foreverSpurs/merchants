@@ -32,23 +32,23 @@ public class MerchantsServTest {
     public void testCreateMerchantServ() {
 
         CreateMerchantsRequest request = new CreateMerchantsRequest();
-        request.setName("慕课");
-        request.setLogoUrl("www.imooc.com");
-        request.setBusinessLicenseUrl("www.imooc.com");
+        request.setName("TDH-merchant");
+        request.setLogoUrl("www.tdh.com");
+        request.setBusinessLicenseUrl("www.tdh.com");
         request.setPhone("1234567890");
-        request.setAddress("北京市");
+        request.setAddress("南京市");
 
         System.out.println(JSON.toJSONString(merchantsServ.createMerchants(request)));
     }
 
     /**
-     * {"data":{"address":"北京市","businessLicenseUrl":"www.imooc.com",
-     * "id":19,"isAudit":false,"logoUrl":"www.imooc.com",
-     * "name":"慕课","phone":"1234567890"},"errorCode":0,"errorMsg":""}
+     * {"data":{"address":"深圳市","businessLicenseUrl":"www.tdh.com","id":20,
+     * "isAudit":true,"logoUrl":"www.tdh.com","name":"xiaott","phone":"13245678909"},
+     * "errorCode":0,"errorMsg":""}
      */
     @Test
     public void testBuildMerchantsInfoById(){
-        System.out.println(JSON.toJSONString(merchantsServ.buildMerchantsInfoById(19)));
+        System.out.println(JSON.toJSONString(merchantsServ.buildMerchantsInfoById(20)));
     }
 
     @Test

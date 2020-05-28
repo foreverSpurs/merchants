@@ -6,10 +6,25 @@ spring:
     username: root
     password: passw0rd
     driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # druid 数据库连接池的设置
+    druid:
+      # 初始化连接数
+      initial-size: 1
+      # 最小空闲连接
+      min-idle: 1
+      # 最大活动连接
+      max-active: 10
+      # 获取连接时测试是否可用
+      test-on-borrow: true
+      # 监控页面启动
+      stat-view-servlet:
+        allow: true
+
   kafka:
     # kafka 代理地址
     bootstrap-servers:
-      - 192.168.115.101:9092
+      - 140.143.125.249:9092
     # 生产者 ##
     producer:
       retries: 0
@@ -24,9 +39,9 @@ spring:
       group-id: passbook
     listener:
       concurrency: 4
-#server:
-#  port: 9527
-#logging:
-#  level:
-#    root: debug
-#  file: merchants.log
+server:
+  port: 9527
+logging:
+  level:
+    root: debug
+  file: merchants.log
