@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: Merchants
+  datasource:
+    url: jdbc:mysql://cdb-kkkw7kxa.cd.tencentcdb.com:10050/passbook?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: passw0rd
+    driver-class-name: com.mysql.jdbc.Driver
+  kafka:
+    # kafka 代理地址
+    bootstrap-servers:
+      - 192.168.115.101:9092
+    # 生产者 ##
+    producer:
+      retries: 0
+      # 每次批量发送消息的数量
+      batch-size:
+        16384
+      buffer-memory:
+        33554432
+      # 指定消息 key 和 value 的编解码方式
+    # 消费者
+    consumer:
+      group-id: passbook
+    listener:
+      concurrency: 4
+#server:
+#  port: 9527
+#logging:
+#  level:
+#    root: debug
+#  file: merchants.log
